@@ -33,7 +33,7 @@ function App() {
           <BreadCrubmb />
 
           <div className="container-fluid">
-            <StatCards />
+            <StatCards quizzes={quizzes}/>
             <QuizzesTable quizzes={quizzes}/>
           </div>
           <Footer />
