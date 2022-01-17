@@ -6,9 +6,8 @@ export default function Footer() {
           {/* Footer */}
           <footer>
             <p>
-              © Bootadmin. All Rights Reserved. <br />
-              Designed and Developed by{" "}
-              <a href="https://sazzad.me">Sazzad Hossain</a>.
+              Designed and Developed by 
+              <a href="https://gdscuit.com">GDSC UIT RGPV</a>.
             </p>
           </footer>   
         </>
