@@ -34,7 +34,7 @@ function App() {
 
           <div className="container-fluid">
             <StatCards />
-            <QuizzesTable />
+            <QuizzesTable quizzes={quizzes}/>
           </div>
           <Footer />
         </main>

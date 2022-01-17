@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function QuizzesTable() {
+export default function QuizzesTable(props) {
+  console.log(props.quizzes);
     return (
         <>
           <div className="row">
@@ -34,118 +35,47 @@ export default function QuizzesTable() {
                     <table className="table v-middle">
                       <thead>
                         <tr className="bg-light">
-                          <th className="border-top-0">Products</th>
-                          <th className="border-top-0">License</th>
-                          <th className="border-top-0">Support Agent</th>
-                          <th className="border-top-0">Technology</th>
-                          <th className="border-top-0">Tickets</th>
-                          <th className="border-top-0">Sales</th>
-                          <th className="border-top-0">Earnings</th>
+                          <th className="border-top-0">Sno.</th>
+                          <th className="border-top-0">ID</th>
+                          <th className="border-top-0">Active</th>
+                          <th className="border-top-0">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+
+                       
+
+                      {
+                        props.quizzes.map((quiz,index)=>{
+                          return (
+                            <>
+                             <tr>
                           <td>
-                            <div className="d-flex align-items-center">
-                              <div className="m-r-10">
-                                <a className="btn btn-circle btn-info text-white">
-                                  EA
-                                </a>
-                              </div>
-                              <div className>
-                                <h4 className="m-b-0 font-16">Elite Admin</h4>
-                              </div>
-                            </div>
+                            
+                            {index+1}
                           </td>
-                          <td>Single Use</td>
-                          <td>John Doe</td>
+                          <td>{quiz.id}</td>
+                          <td>{quiz.active ? "Active" : "InActive"}</td>
                           <td>
-                            <label className="label label-danger">
-                              Angular
-                            </label>
-                          </td>
-                          <td>46</td>
-                          <td>356</td>
-                          <td>
-                            <h5 className="m-b-0">$2850.06</h5>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div className="d-flex align-items-center">
-                              <div className="m-r-10">
-                                <a className="btn btn-circle btn-warning text-white">
-                                  MA
-                                </a>
-                              </div>
-                              <div className>
-                                <h4 className="m-b-0 font-16">Monster Admin</h4>
-                              </div>
-                            </div>
-                          </td>
-                          <td>Single Use</td>
-                          <td>Venessa Fern</td>
-                          <td>
-                            <label className="label label-info">Vue Js</label>
-                          </td>
-                          <td>46</td>
-                          <td>356</td>
-                          <td>
-                            <h5 className="m-b-0">$2850.06</h5>
+                            <a href="#" className="btn btn-outline-primary">
+                              <i className="mdi mdi-eye" />
+                            </a>
+                            <a href="#" className="btn btn-outline-success">
+                              <i className="mdi mdi-pencil" />
+                            </a>
+                            <a href="#" className="btn btn-outline-danger">
+                              <i className="mdi mdi-trash-can" />
+                            </a>
                           </td>
                         </tr>
-                        <tr>
-                          <td>
-                            <div className="d-flex align-items-center">
-                              <div className="m-r-10">
-                                <a className="btn btn-circle btn-success text-white">
-                                  MP
-                                </a>
-                              </div>
-                              <div className>
-                                <h4 className="m-b-0 font-16">
-                                  Material Pro Admin
-                                </h4>
-                              </div>
-                            </div>
-                          </td>
-                          <td>Single Use</td>
-                          <td>John Doe</td>
-                          <td>
-                            <label className="label label-success">
-                              Bootstrap
-                            </label>
-                          </td>
-                          <td>46</td>
-                          <td>356</td>
-                          <td>
-                            <h5 className="m-b-0">$2850.06</h5>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div className="d-flex align-items-center">
-                              <div className="m-r-10">
-                                <a className="btn btn-circle btn-primary text-white">
-                                  AA
-                                </a>
-                              </div>
-                              <div className>
-                                <h4 className="m-b-0 font-16">Ample Admin</h4>
-                              </div>
-                            </div>
-                          </td>
-                          <td>Single Use</td>
-                          <td>John Doe</td>
-                          <td>
-                            <label className="label label-purple">React</label>
-                          </td>
-                          <td>46</td>
-                          <td>356</td>
-                          <td>
-                            <h5 className="m-b-0">$2850.06</h5>
-                          </td>
-                        </tr>
+                            </>
+                          )
+                        }
+                        )
+                      }
+                        
+                      
+
                       </tbody>
                     </table>
                   </div>
