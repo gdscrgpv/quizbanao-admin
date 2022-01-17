@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import firebase from "./firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, doc, addDoc, getDocs } from "firebase/firestore";
 import Topbar from "./components/Topbar";
 import AsideBAr from "./components/AsideBAr";
 import Sidebar from "./components/Sidebar";
@@ -13,6 +13,17 @@ import QuizzesTable from "./components/QuizzesTable";
 import Footer from "./components/Footer";
 
 function App() {
+  // Get collection named quizzes from Firebase Firestore
+ const [quizzes, setQuizzes] = useState([]);
+  async function getQuizzes() {
+    const quizzesSnapshot = await getDocs(collection(firebase, "quizzes"));
+    const quizzesList = quizzesSnapshot.docs.map(doc => {return {id: doc.id,...doc.data()}});
+    setQuizzes(quizzesList);
+  }
+  useEffect(() => {
+  getQuizzes();
+  }, []);
+
   return (
     <>
       <div id="dashboardPage">
@@ -20,6 +31,7 @@ function App() {
         <Sidebar />
         <main>
           <BreadCrubmb />
+
           <div className="container-fluid">
             <StatCards />
             <QuizzesTable />
