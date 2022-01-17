@@ -7,6 +7,7 @@ import { collection, addDoc } from "firebase/firestore";
 import Topbar from "./components/Topbar";
 import AsideBAr from "./components/AsideBAr";
 import Sidebar from "./components/Sidebar";
+import BreadCrubmb from "./components/BreadCrubmb";
 
 function App() {
   return (
@@ -15,29 +16,7 @@ function App() {
         <Topbar />
         <Sidebar />
         <main>
-          <div className="page-breadcrumb">
-            <div className="row">
-              <div className="col-6">
-                <h4 className="page-title">Dashboard</h4>
-                <nav aria-label="breadcrumb">
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <a href="/">Home</a>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                      Dashboard
-                    </li>
-                  </ol>
-                </nav>
-              </div>
-              <div className="col-6">
-                <div className="text-right">
-                  <small>Users</small>
-                  <h5 className="text-info">3,458</h5>
-                </div>
-              </div>
-            </div>
-          </div>
+          <BreadCrubmb />
           <div className="container-fluid">
             <div className="row">
               {/* column */}
