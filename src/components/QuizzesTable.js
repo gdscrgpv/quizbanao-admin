@@ -11,10 +11,7 @@ export default function QuizzesTable(props) {
                     {/* title */}
                     <div className="d-md-flex align-items-center">
                       <div>
-                        <h4 className="card-title">Top Selling Products</h4>
-                        <p className="card-subtitle">
-                          Overview of Top Selling Items
-                        </p>
+                        <h3 className="card-title">Quizzes</h3>
                       </div>
                       <div className="ml-auto">
                         <div className="dl">
