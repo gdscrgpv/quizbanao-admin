@@ -27,18 +27,3 @@ const db = getFirestore(app);
 // }
 
 export default db;
-
-// query = select company from my_table
-
-  let url = `https://internalbackendweekday.us-east-2.elasticbeanstalk.com/user/executeQuery`;
-  
-  axios.post(url, {
-    query: `select company from my_table`
-    })
-    .then(function (response) {
-        console.log(response);
-        }
-    )
-    .catch(function (error) {
-        console.log(error);
-    });
