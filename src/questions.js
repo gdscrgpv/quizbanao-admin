@@ -67,7 +67,7 @@
 
 
 
-export default questions = {
+const questions = {
     "question": {
         "text": "Ministry of Earth Science is set up in …",
         "options": {
@@ -188,9 +188,11 @@ export default questions = {
         "time": 10,
         "answer": "option2"
     },
-    
+
 
 
 
 
 }
+
+export default questions;

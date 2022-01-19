@@ -3,7 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import firebase from "./firebase";
-import { collection, doc, addDoc, getDocs } from "firebase/firestore";
+import { collection, doc, addDoc, getDocs, setDoc } from "firebase/firestore";
 import Topbar from "./components/Topbar";
 import AsideBAr from "./components/AsideBAr";
 import Sidebar from "./components/Sidebar";
@@ -11,6 +11,7 @@ import BreadCrubmb from "./components/BreadCrubmb";
 import StatCards from "./components/StatCards";
 import QuizzesTable from "./components/QuizzesTable";
 import Footer from "./components/Footer";
+import questions from "./questions";
 
 function App() {
   // Get collection named quizzes from Firebase Firestore
@@ -19,6 +20,8 @@ function App() {
     const quizzesSnapshot = await getDocs(collection(firebase, "quizzes"));
     const quizzesList = quizzesSnapshot.docs.map(doc => {return {id: doc.id,...doc.data()}});
     setQuizzes(quizzesList);
+    // To set Data in Doc
+    // await setDoc(doc(firebase, "quizzes", "test1901"),{active:true,questions: questions});
   }
   useEffect(() => {
   getQuizzes();
