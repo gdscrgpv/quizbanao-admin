@@ -12,6 +12,7 @@ import StatCards from "./components/StatCards";
 import QuizzesTable from "./components/QuizzesTable";
 import Footer from "./components/Footer";
 import questions from "./questions";
+import DeleteQuiz from "./components/DeleteQuiz";
 
 function App() {
   // Get collection named quizzes from Firebase Firestore
@@ -21,7 +22,7 @@ function App() {
     const quizzesList = quizzesSnapshot.docs.map(doc => {return {id: doc.id,...doc.data()}});
     setQuizzes(quizzesList);
     // To set Data in Doc
-    // await setDoc(doc(firebase, "quizzes", "test1901"),{active:true,questions: questions});
+    // await setDoc(doc(firebase, "quizzes", "test222"),{active:true,questions: questions});
   }
   useEffect(() => {
   getQuizzes();
@@ -38,6 +39,7 @@ function App() {
           <div className="container-fluid">
             <StatCards quizzes={quizzes}/>
             <QuizzesTable quizzes={quizzes}/>
+            
           </div>
           <Footer />
         </main>
