@@ -1,7 +1,26 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import DeleteQuiz from './DeleteQuiz';
+import firebase from "../firebase";
+import { collection, doc, deleteDoc } from "firebase/firestore";
+
+
+
 
 export default function QuizzesTable(props) {
+  // const delState = 0;
+  const deleteQuiz = async(id)=>{
+    const quizDel = doc(firebase,"quizzes", id); 
+    await deleteDoc(quizDel);
+    // delState=!delState;
+    window.location.reload();
+    }
+  // useEffect(() => {
+    
+  // }, [delState]);
+  
+  
   console.log(props.quizzes);
+  const [deleteID, setDeleteID] = useState();
     return (
         <>
           <div className="row">
@@ -60,9 +79,16 @@ export default function QuizzesTable(props) {
                             <a href="#" className="btn btn-outline-success">
                               <i className="mdi mdi-pencil" />
                             </a>
-                            <a href="#" className="btn btn-outline-danger">
+                            
+                        
+                            
+                           
+                            <a href="#" role="button" type="button" data-toggle="modal" data-target="#exampleModalCenter" className="btn btn-outline-danger" 
+                            onClick={()=>{setDeleteID(quiz.id)}}>
+                            
                               <i className="mdi mdi-trash-can" />
                             </a>
+                            
                           </td>
                         </tr>
                             </>
@@ -75,7 +101,11 @@ export default function QuizzesTable(props) {
 
                       </tbody>
                     </table>
+                    
                   </div>
+                  <DeleteQuiz d={deleteID} 
+                  delFunc={deleteQuiz}
+                               />
                 </div>
               </div>
             </div>  
