@@ -58,12 +58,7 @@ function App() {
           exact
           path="/responses"
           element={
-            <Responses
-              quizzes={responses}
-              idQuiz={deleteID}
-              setIdQuiz={setDeleteID}
-              changeID={changeID}
-            />
+            <Responses />
           }
         />
         <Route exact path="/view/:id" element={<ViewQueAns />} />

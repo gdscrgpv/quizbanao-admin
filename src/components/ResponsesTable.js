@@ -1,27 +1,13 @@
-import React, { useState, useEffect } from "react";
-import DeleteQuiz from "./DeleteQuiz";
-import firebase from "../firebase";
-import { collection, doc, deleteDoc } from "firebase/firestore";
-
+import React, { useState, useEffect }from "react";
+import DeleteModal from "./DeleteModal";
 export default function AnalysisTable(props) {
-    
-    const deleteQuiz = async (id) => {
-    const quizDel = doc(firebase, "quizzes", id);
-    await deleteDoc(quizDel);
-    // delState=!delState;
-    window.location.reload();
-  };
-  
-
-  console.log(props.quizzes);
-  
+  const [delId , setDelId] = useState('');
   return (
     <>
       <div className="row">
         <div className="col-sm-12">
           <div className="card">
             <div className="card-body">
-              {/* title */}
               <div className="d-md-flex align-items-center">
                 <div>
                   <h3 className="card-title">Quizzes</h3>
@@ -55,7 +41,7 @@ export default function AnalysisTable(props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {props.quizzes.map((quiz, index) => {
+                  {props.responses.map((quiz, index) => {
                     return (
                       <>
                         <tr>
@@ -85,7 +71,7 @@ export default function AnalysisTable(props) {
                               data-target="#exampleModalCenter"
                               className="btn btn-outline-danger"
                               onClick={() => {
-                                props.setIdQuiz(quiz.id);
+                                setDelId(quiz.id);
                               }}
                             >
                               <i className="mdi mdi-trash-can" />
@@ -97,13 +83,11 @@ export default function AnalysisTable(props) {
                   })}
                 </tbody>
               </table>
+              <DeleteModal collection="users" id={delId} />
             </div>
-            <DeleteQuiz d={props.idQuiz} delFunc={deleteQuiz} />
-            
           </div>
         </div>
       </div>
-      {/* <ViewQueAns ID = {deleteID} /> */}
     </>
     
   );

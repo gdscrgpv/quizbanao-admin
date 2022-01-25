@@ -1,4 +1,5 @@
-import { collection, doc, addDoc, getDocs, setDoc } from "firebase/firestore";
+import { collection, doc, addDoc, getDocs, setDoc, deleteDoc } from "firebase/firestore";
+import firebase from "../firebase";
 
 // Get All Record of given collection name
 export async function getCollection(collectionName) {
@@ -18,7 +19,7 @@ export async function getDocument(collectionName, docName) {
 
 // delete Record of given collection name and document name
 export async function deleteDocument(collectionName, docName) {
-    await doc(firebase, collectionName, docName).delete();
+    await deleteDoc(doc(firebase, collectionName, docName))
 }
 
 // Add Record of given collection name and document name
@@ -29,4 +30,8 @@ export async function addDocument(collectionName, docName, data) {
 // Update Record of given collection name and document name
 export async function updateDocument(collectionName, docName, data) {
     await setDoc(firebase, collectionName, docName, data);
+}
+
+export function yepp() {
+    console.log("yepp");
 }
