@@ -5,7 +5,8 @@ import "./App.css";
 import firebase from "./firebase";
 import { collection, doc, addDoc, getDocs, setDoc } from "firebase/firestore";
 import ViewQueAns from "./pages/ViewQueAns";
-import MainDashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
+import Responses from "./pages/Responses";
 
 function App() {
   // Get collection named quizzes from Firebase Firestore
@@ -34,7 +35,7 @@ function App() {
           exact
           path="/"
           element={
-            <MainDashboard
+            <Dashboard
               quizzes={quizzes}
               idQuiz={deleteID}
               setIdQuiz={setDeleteID}
@@ -44,9 +45,9 @@ function App() {
         />
         <Route
           exact
-          path="/analysis"
+          path="/responses"
           element={
-            <MainDashboard
+            <Responses
               quizzes={quizzes}
               idQuiz={deleteID}
               setIdQuiz={setDeleteID}

@@ -3,7 +3,7 @@ import StatCards from "../components/StatCards";
 import QuizzesTable from "../components/QuizzesTable";
 import MainLayout from "../layouts/MainLayout";
 
-function MainDashboard({quizzes,idQuiz,setIdQuiz,changeID}) {
+function Dashboard({quizzes,idQuiz,setIdQuiz,changeID}) {
     console.log("main",idQuiz);
   return (
     <MainLayout>
@@ -15,4 +15,4 @@ function MainDashboard({quizzes,idQuiz,setIdQuiz,changeID}) {
   );
 }
 
-export default MainDashboard;
+export default Dashboard;

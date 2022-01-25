@@ -47,10 +47,10 @@ export default function Sidebar() {
                   <li className="nav-item">
                     <a
                       className="nav-link js-darkSidebar wave-effect"
-                      href="/analysis"
+                      href="/responses"
                     >
                       <i className="feather icon-shopping-bag" />
-                      <span className="menu-title">Analysis</span>
+                      <span className="menu-title">Responses</span>
                     </a>
                   </li>
                   
