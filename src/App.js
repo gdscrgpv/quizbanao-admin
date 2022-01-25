@@ -38,7 +38,7 @@ function App() {
           <BreadCrubmb />
 
           <div className="container-fluid">
-            <Login_page/>
+            {/* <Login_page/> */}
             <StatCards quizzes={quizzes}/>
             <QuizzesTable quizzes={quizzes}/>
             
