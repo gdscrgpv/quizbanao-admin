@@ -5,14 +5,8 @@ import "./App.css";
 import firebase from "./firebase";
 import { collection, doc, addDoc, getDocs, setDoc } from "firebase/firestore";
 import Topbar from "./components/Topbar";
-import AsideBAr from "./components/AsideBAr";
 import Sidebar from "./components/Sidebar";
-import BreadCrubmb from "./components/BreadCrubmb";
-import StatCards from "./components/StatCards";
-import QuizzesTable from "./components/QuizzesTable";
 import Footer from "./components/Footer";
-import questions from "./questions";
-import DeleteQuiz from "./components/DeleteQuiz";
 import ViewQueAns from "./components/ViewQueAns";
 import MainDashboard from "./components/MainDashboard";
 
@@ -47,9 +41,7 @@ function App() {
         <Sidebar />
         <main>
           <Routes>
-            <Route
-              exact
-              path="/"
+            <Route exact path="/"
               element={
                 <MainDashboard
                   quizzes={quizzes}
@@ -59,26 +51,7 @@ function App() {
                 />
               }
             />
-
-            {/* <>
-          <BreadCrubmb />
-
-          <div className="container-fluid">
-            <StatCards quizzes={quizzes}/>
-            <QuizzesTable quizzes={quizzes}/>
-            
-          </div>
-          </> */}
-            {/* <Route
-              exact
-              path="/view/:id"
-              render={(props)=>{<ViewQueAns {...props} />}}
-            /> */}
-            <Route
-              exact
-              path="/view/:id"
-              element={<ViewQueAns   />}
-            />
+            <Route exact path="/view/:id" element={<ViewQueAns />} />
           </Routes>
 
           <Footer />

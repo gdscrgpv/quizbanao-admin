@@ -1,8 +1,11 @@
 import React from "react";
 import "./ViewQueAns.css"
+import { useParams } from 'react-router-dom';
 
 function ViewQueAns(props) {
-    console.log("v",props)
+  const params = useParams();
+  const id = params.id;
+  console.log("id",id)
   return (
     <div className="wrapper bg-white rounded">
       <div className="content">
