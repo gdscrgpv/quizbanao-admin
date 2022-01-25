@@ -69,8 +69,6 @@ export default function AnalysisTable(props) {
                             <a
                               href={"/view/"+quiz.id}
                               className="btn btn-outline-primary"
-                              onClick={()=>{props.changeID(quiz.id);
-                              console.log("view",props.idQuiz)}}
                             >
                               
                               <i className="mdi mdi-eye" />
