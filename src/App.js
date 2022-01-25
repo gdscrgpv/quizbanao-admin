@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import firebase from "./firebase";
 import { collection, doc, addDoc, getDocs, setDoc } from "firebase/firestore";
-import Topbar from "./components/Topbar";
-import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer";
 import ViewQueAns from "./components/ViewQueAns";
-import MainDashboard from "./components/MainDashboard";
+import MainDashboard from "./pages/Dashboard";
 
 function App() {
   // Get collection named quizzes from Firebase Firestore
@@ -26,9 +23,6 @@ function App() {
   useEffect(() => {
     getQuizzes();
   }, []);
-  // useEffect(() => {
-
-  // }, [setDeleteID,deleteID]);
   const changeID = (val) => {
     setDeleteID(val);
   };
