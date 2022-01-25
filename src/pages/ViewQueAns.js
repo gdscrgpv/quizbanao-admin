@@ -1,6 +1,7 @@
 import React from "react";
 import "./ViewQueAns.css";
 import { useParams } from "react-router-dom";
+import MainLayout from "../layouts/MainLayout"; 
 
 function ViewQueAns(props) {
   const params = useParams();
