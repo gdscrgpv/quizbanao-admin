@@ -29,34 +29,27 @@ function App() {
   // useEffect(() => {
 
   // }, [setDeleteID,deleteID]);
-  const changeID=(val) =>{
-    setDeleteID(val)
-  }
-  console.log("app",deleteID)
+  const changeID = (val) => {
+    setDeleteID(val);
+  };
+  console.log("app", deleteID);
   return (
-    
     <>
-      <div id="dashboardPage">
-        <Topbar />
-        <Sidebar />
-        <main>
-          <Routes>
-            <Route exact path="/"
-              element={
-                <MainDashboard
-                  quizzes={quizzes}
-                  idQuiz={deleteID}
-                  setIdQuiz={setDeleteID}
-                  changeID={changeID}
-                />
-              }
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <MainDashboard
+              quizzes={quizzes}
+              idQuiz={deleteID}
+              setIdQuiz={setDeleteID}
+              changeID={changeID}
             />
-            <Route exact path="/view/:id" element={<ViewQueAns />} />
-          </Routes>
-
-          <Footer />
-        </main>
-      </div>
+          }
+        />
+        <Route exact path="/view/:id" element={<ViewQueAns />} />
+      </Routes>
     </>
   );
 }
