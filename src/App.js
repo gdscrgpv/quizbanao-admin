@@ -42,6 +42,18 @@ function App() {
             />
           }
         />
+        <Route
+          exact
+          path="/analysis"
+          element={
+            <MainDashboard
+              quizzes={quizzes}
+              idQuiz={deleteID}
+              setIdQuiz={setDeleteID}
+              changeID={changeID}
+            />
+          }
+        />
         <Route exact path="/view/:id" element={<ViewQueAns />} />
       </Routes>
     </>

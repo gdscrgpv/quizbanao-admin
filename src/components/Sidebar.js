@@ -23,16 +23,13 @@ export default function Sidebar() {
               <span className="profile-info">Quiz Banao Team</span>
             </li>
             <li className="spacer" />
-            <li className="title">
-              <i className="feather icon-more-horizontal" />
-              <span className="menu-title">Main</span>
-            </li>
+            
             
             
                   <li className="nav-item">
                     <a
                       className="nav-link wave-effect"
-                      href="http://bootadmin.org/"
+                      href="/"
                     >
                       <i className="feather icon-layout" />
                       <span className="menu-title">Dashboard</span>
@@ -41,7 +38,7 @@ export default function Sidebar() {
                   <li className="nav-item">
                     <a
                       className="nav-link wave-effect"
-                      href="http://bootadmin.org/"
+                      href="/quizzes"
                     >
                       <i className="feather icon-shopping-bag" />
                       <span className="menu-title">Quizzes</span>
@@ -50,10 +47,10 @@ export default function Sidebar() {
                   <li className="nav-item">
                     <a
                       className="nav-link js-darkSidebar wave-effect"
-                      href="javascript: void();"
+                      href="/analysis"
                     >
                       <i className="feather icon-shopping-bag" />
-                      <span className="menu-title">Responses</span>
+                      <span className="menu-title">Analysis</span>
                     </a>
                   </li>
                   
