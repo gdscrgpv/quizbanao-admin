@@ -46,8 +46,11 @@ export default function AnalysisTable(props) {
                 <thead>
                   <tr className="bg-light">
                     <th className="border-top-0">Sno.</th>
-                    <th className="border-top-0">ID</th>
-                    <th className="border-top-0">Active</th>
+                    <th className="border-top-0">Name</th>
+                    <th className="border-top-0">Email</th>
+                    <th className="border-top-0">Marks</th>
+                    <th className="border-top-0">Quiz</th>
+                    <th className="border-top-0">Time</th>
                     <th className="border-top-0">Actions</th>
                   </tr>
                 </thead>
@@ -57,8 +60,11 @@ export default function AnalysisTable(props) {
                       <>
                         <tr>
                           <td>{index + 1}</td>
-                          <td>{quiz.id}</td>
-                          <td>{quiz.active ? "Active" : "InActive"}</td>
+                          <td>{quiz.fullName}</td>
+                          <td>{quiz.email}</td>
+                          <td>{quiz.marks}</td>
+                          <td>{quiz.quizId}</td>
+                          <td>{Math.round(quiz.time_taken)}</td>
                           <td>
                             <a
                               href={"/view/"+quiz.id}
