@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import firebase from "./firebase";
 import { collection, doc, addDoc, getDocs, setDoc } from "firebase/firestore";
-import ViewQueAns from "./components/ViewQueAns";
+import ViewQueAns from "./pages/ViewQueAns";
 import MainDashboard from "./pages/Dashboard";
 
 function App() {

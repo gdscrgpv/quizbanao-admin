@@ -1,5 +1,4 @@
 import React from "react";
-import BreadCrubmb from "../components/BreadCrubmb";
 import StatCards from "../components/StatCards";
 import QuizzesTable from "../components/QuizzesTable";
 import MainLayout from "../layouts/MainLayout";

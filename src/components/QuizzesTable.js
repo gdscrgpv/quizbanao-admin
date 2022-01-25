@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import DeleteQuiz from "./DeleteQuiz";
 import firebase from "../firebase";
 import { collection, doc, deleteDoc } from "firebase/firestore";
-import ViewQueAns from "./ViewQueAns";
-
 export default function QuizzesTable(props) {
   // const delState = 0;
   const deleteQuiz = async (id) => {
