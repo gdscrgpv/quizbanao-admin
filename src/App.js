@@ -13,6 +13,7 @@ import QuizzesTable from "./components/QuizzesTable";
 import Footer from "./components/Footer";
 import questions from "./questions";
 import DeleteQuiz from "./components/DeleteQuiz";
+import Login_page from "./components/Login_page";
 
 function App() {
   // Get collection named quizzes from Firebase Firestore
@@ -37,6 +38,7 @@ function App() {
           <BreadCrubmb />
 
           <div className="container-fluid">
+            <Login_page/>
             <StatCards quizzes={quizzes}/>
             <QuizzesTable quizzes={quizzes}/>
             

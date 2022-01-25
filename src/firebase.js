@@ -1,6 +1,7 @@
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore} from 'firebase/firestore';
+import { getAuth } from "firebase/auth";
 // Follow this pattern to import other Firebase services
 // import { } from 'firebase/<service>';
 
@@ -25,5 +26,5 @@ const db = getFirestore(app);
 //   const cityList = citySnapshot.docs.map(doc => doc.data());
 //   return cityList;
 // }
-
+export const auth=getAuth(app);
 export default db;
