@@ -7,7 +7,7 @@ export default function EditQuiz() {
   const [Questions, setQuestions] = useState({});
   const [active, setActive] = useState(false);
   const params = useParams();
-  const id = params.id;
+  const [id, setId] = useState(params.id);
   useEffect(async () => {
     const data = await getDocument("quizzes", id);
     setQuestions(data.questions);
@@ -17,20 +17,37 @@ export default function EditQuiz() {
 
   return (
     <MainLayout pageName={"View Quiz " + id}>
-      <div className="container">
-        {active ? (
-          <h2 className="text-success">Active</h2>
-        ) : (
-          <h2 className="text-danger"></h2>
-        )}
-
-        <hr />
-        <div
+      <div
+        className="container"
+        style={{
+          maxWidth: "800px",
+          margin: "0 auto",
+        }}
+      >
+        <input
+          type="text"
+          value={id}
           style={{
-            maxWidth: "800px",
-            margin: "0 auto",
+            width: "85%",
+            padding: "10px",
+            border: "none",
+            borderBottom: "2px solid #777",
+            outline: "none",
+            fontSize: "1.4em",
           }}
-        >
+        />
+        <div class="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="customCheck1"
+            onChange={() => setActive(!active)}
+            checked={active}
+          />
+          <label class="custom-control-label" for="customCheck1">{active ? "Active" : "InActive"}</label>
+        </div>
+        <hr />
+        <div>
           {Object.keys(Questions).map((key, index) => (
             <div
               style={{

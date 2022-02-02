@@ -17,7 +17,11 @@ export default function ViewQuiz() {
 
   return (
     <MainLayout pageName={"View Quiz " + id}>
-      <div className="container">
+      <div className="container" 
+          style={{
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}>
         {active ? (
           <h2 className="text-success">{id} - Active</h2>
         ) : (
@@ -25,10 +29,7 @@ export default function ViewQuiz() {
         )}
 
         <hr />
-        <div style={{
-          maxWidth: "800px",
-          margin: "0 auto",
-        }}>
+        <div>
           {Object.keys(Questions).map((key,index) => (
             <div style={{
               padding: "5%",
