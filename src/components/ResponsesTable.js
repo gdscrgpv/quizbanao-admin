@@ -1,7 +1,9 @@
 import React, { useState, useEffect }from "react";
 import DeleteModal from "./DeleteModal";
+import ResponsesViewModal from "./ResponsesViewModal";
 export default function AnalysisTable(props) {
   const [delId , setDelId] = useState('');
+  const [responseId , setResponseId] = useState('')
   return (
     <>
       <div className="row">
@@ -53,13 +55,30 @@ export default function AnalysisTable(props) {
                           <td>{Math.round(quiz.time_taken)}</td>
                           <td>
                             <a
-                              href={"/view/"+quiz.id}
+                              href="#"
+                              role="button"
+                              type="button"
+                              data-toggle="modal"
+                              data-target="#responsesViewModal"
+                              onClick={() => {
+                                setDelId(quiz.id);
+                              }}
                               className="btn btn-outline-primary"
                             >
                               
                               <i className="mdi mdi-eye" />
                             </a>
-                            <a href="#" className="btn btn-outline-success">
+                            <a 
+
+                              href="#"
+                              role="button"
+                              type="button"
+                              data-toggle="modal"
+                              data-target="#responseEditModal"
+                              onClick={() => {
+                                setDelId(quiz.id);
+                              }}                            
+                            className="btn btn-outline-success">
                               <i className="mdi mdi-pencil" />
                             </a>
 
@@ -69,10 +88,10 @@ export default function AnalysisTable(props) {
                               type="button"
                               data-toggle="modal"
                               data-target="#deleteModal"
-                              className="btn btn-outline-danger"
                               onClick={() => {
                                 setDelId(quiz.id);
                               }}
+                              className="btn btn-outline-danger"
                             >
                               <i className="mdi mdi-trash-can" />
                             </a>
@@ -84,6 +103,7 @@ export default function AnalysisTable(props) {
                 </tbody>
               </table>
               <DeleteModal collection="users" id={delId} />
+              <ResponsesViewModal id={responseId} />
             </div>
           </div>
         </div>

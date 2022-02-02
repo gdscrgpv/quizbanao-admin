@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import {deleteDocument} from '../helpers/firebase';
 
 function ResponsesViewModal(props) {
-  async function deleteDoc(){
-    await deleteDocument(props.collection, props.id);
-    window.location.reload();
-  }
+  // async function deleteDoc(){
+  //   await deleteDocument(props.collection, props.id);
+  //   window.location.reload();
+  // }
   return (
     <>
        <div
@@ -44,7 +44,9 @@ function ResponsesViewModal(props) {
               </button>
               <button type="button" className="btn btn-danger" 
                data-dismiss="modal"
-              onClick={()=>{deleteDoc()}}>
+              onClick={()=>{
+                // deleteDoc()
+                }}>
                 Save changes
               </button>
             </div>
