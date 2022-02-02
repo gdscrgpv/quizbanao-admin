@@ -36,6 +36,15 @@ export default function EditQuiz() {
     setQuestions(newQuestions);
   };
 
+  const addQuestion = () => {
+    const newQuestions = {...Questions};
+    newQuestions[`${Object.keys(Questions).length}`] = {
+        question: "",
+        options: ["", "", "", ""]
+    };
+    setQuestions(newQuestions);
+    
+    };
   return (
     <MainLayout pageName={"View Quiz " + id}>
       <div
@@ -147,6 +156,20 @@ export default function EditQuiz() {
               </div>
             </div>
           ))}
+          <hr />
+          <div
+          style={{ 
+            display: "flex",
+            justifyContent: "center",
+          }}
+          >
+            <button
+              className="btn btn-lg m-auto btn-primary"
+              onClick={() => addQuestion()}
+            >
+              Update Questions
+            </button>
+          </div>
         </div>
       </div>
     </MainLayout>
