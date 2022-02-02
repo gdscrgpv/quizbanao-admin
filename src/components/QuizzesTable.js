@@ -1,34 +1,14 @@
 import React, { useState, useEffect } from "react";
-import DeleteQuiz from "./DeleteQuiz";
-import firebase from "../firebase";
-import { collection, doc, deleteDoc } from "firebase/firestore";
+import DeleteModal from "./DeleteModal";
+
 export default function QuizzesTable(props) {
-  // const delState = 0;
-  const deleteQuiz = async (id) => {
-    const quizDel = doc(firebase, "quizzes", id);
-    await deleteDoc(quizDel);
-    // delState=!delState;
-    window.location.reload();
-  };
-  
-  // useEffect(() => {
-  //   const setid =(id) => {
-                                
-  //     props.setIdQuiz(id);
-  //     console.log("vie",id);
-  //   }
-
-  // }, [props]);
-
-  console.log(props.quizzes);
-  
+  const [delId , setDelId] = useState('');
   return (
     <>
       <div className="row">
         <div className="col-sm-12">
           <div className="card">
             <div className="card-body">
-              {/* title */}
               <div className="d-md-flex align-items-center">
                 <div>
                   <h3 className="card-title">Quizzes</h3>
@@ -46,7 +26,6 @@ export default function QuizzesTable(props) {
                   </div>
                 </div>
               </div>
-              {/* title */}
             </div>
             <div className="table-responsive">
               <table className="table v-middle">
@@ -85,7 +64,7 @@ export default function QuizzesTable(props) {
                               role="button"
                               type="button"
                               data-toggle="modal"
-                              data-target="#exampleModalCenter"
+                              data-target="#deleteModal"
                               className="btn btn-outline-danger"
                               onClick={() => {
                                 props.setIdQuiz(quiz.id);
@@ -101,12 +80,11 @@ export default function QuizzesTable(props) {
                 </tbody>
               </table>
             </div>
-            <DeleteQuiz d={props.idQuiz} delFunc={deleteQuiz} />
+            <DeleteModal id={delId} collection='quizzes' />
             
           </div>
         </div>
       </div>
-      {/* <ViewQueAns ID = {deleteID} /> */}
     </>
     
   );
