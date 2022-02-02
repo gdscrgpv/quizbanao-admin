@@ -31,7 +31,7 @@ export default function Sidebar() {
                       className="nav-link wave-effect"
                       href="/"
                     >
-                      <i className="feather icon-layout" />
+                      <i className="feather icon-sliders" />
                       <span className="menu-title">Dashboard</span>
                     </a>
                   </li>
@@ -40,7 +40,7 @@ export default function Sidebar() {
                       className="nav-link wave-effect"
                       href="/quizzes"
                     >
-                      <i className="feather icon-shopping-bag" />
+                      <i className="feather icon-save" />
                       <span className="menu-title">Quizzes</span>
                     </a>
                   </li>
@@ -49,7 +49,7 @@ export default function Sidebar() {
                       className="nav-link js-darkSidebar wave-effect"
                       href="/responses"
                     >
-                      <i className="feather icon-shopping-bag" />
+                      <i className="feather icon-anchor" />
                       <span className="menu-title">Responses</span>
                     </a>
                   </li>
