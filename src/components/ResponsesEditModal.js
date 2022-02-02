@@ -42,7 +42,6 @@ function ResponsesEditModal(props) {
                     <tr>
                       <th>Name</th>
                       <td>{responseData.fullName}</td>
-                      <td>{responseData.fullName}</td>
                     </tr>
                     <tr>
                       <th>Email</th>

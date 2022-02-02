@@ -42,7 +42,6 @@ function ResponsesViewModal(props) {
                     <tr>
                       <th>Name</th>
                       <td>{responseData.fullName}</td>
-                      <td>{responseData.fullName}</td>
                     </tr>
                     <tr>
                       <th>Email</th>
