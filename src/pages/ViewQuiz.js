@@ -22,12 +22,18 @@ export default function ViewQuiz() {
             maxWidth: "800px",
             margin: "0 auto",
           }}>
-        {active ? (
-          <h2 className="text-success">{id} - Active</h2>
-        ) : (
-          <h2 className="text-danger">{id} - InActive</h2>
-        )}
-
+            
+        <a
+          href={`/edit/${id}`}
+          className={"h2 text-"+ (active ? "success" :"danger")}
+          style={{
+            margin: "10px",
+            textAlign: "center",
+            textDecoration: "none",
+          }}
+        >
+          {id} - {active ? "Active" :"InActive"} <i className="fas fa-edit"></i>
+        </a>
         <hr />
         <div>
           {Object.keys(Questions).map((key,index) => (
