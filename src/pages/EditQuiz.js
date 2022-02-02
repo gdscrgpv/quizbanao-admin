@@ -24,6 +24,11 @@ export default function EditQuiz() {
     width: "100%",
   };
 
+  const updateQuestions = (e,key,property) => {
+    const newQuestions = {...Questions};
+    newQuestions[key][property] = e.target.value;
+    setQuestions(newQuestions);
+    };
   return (
     <MainLayout pageName={"View Quiz " + id}>
       <div
@@ -40,6 +45,7 @@ export default function EditQuiz() {
             ...inputStyle,
             width: "85%",
           }}
+          onChange={(e) => setId(e.target.value)}
         />
         <div class="custom-control custom-checkbox">
           <input
@@ -66,7 +72,10 @@ export default function EditQuiz() {
               }}
               key={key}
             >
-              <input style={inputStyle} value={Questions[key].text} />
+              <input style={inputStyle} value={Questions[key].text}
+
+                onChange={(e) => updateQuestions(e,key,"text")}
+              />
               <hr />
               <div className="row">
                 <div className="col-md-6">
@@ -82,6 +91,7 @@ export default function EditQuiz() {
                             width:"10%"
                         }}
                         checked={optionKey === Questions[key].answer}
+                        onChange={(e) => updateQuestions(e,key,"answer")}
 
                         />
                       <input
@@ -111,6 +121,7 @@ export default function EditQuiz() {
                       fontSize: "1em",
                     }}
                     value={Questions[key].imageUrl}
+                    onChange={(e) => updateQuestions(e,key,"imageUrl")}
                   />
                   <img
                     src={Questions[key].imageUrl}
