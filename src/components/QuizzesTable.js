@@ -50,12 +50,12 @@ export default function QuizzesTable(props) {
                               
                               <i className="mdi mdi-eye" />
                             </a>
-                            <a href={"/view/"+quiz.id} className="btn btn-outline-success">
+                            <a href={"/edit/"+quiz.id} className="btn btn-outline-success">
                               <i className="mdi mdi-pencil" />
                             </a>
 
                             <a
-                              href={"/edit/"+quiz.id}
+                              href="#"
                               role="button"
                               type="button"
                               data-toggle="modal"
