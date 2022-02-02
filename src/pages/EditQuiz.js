@@ -11,7 +11,7 @@ export default function EditQuiz(props) {
   const generateRandomString = () => {
     return Math.random().toString(36).substring(2, 10);
   };
-  if (props.method === "/edit") {
+  if (props.method === "edit") {
     defaultId = params.id;
   } else {
     defaultId = generateRandomString();
