@@ -15,6 +15,15 @@ export default function EditQuiz() {
     console.log(data);
   }, []);
 
+  const inputStyle = {
+    padding: "10px",
+    border: "none",
+    borderBottom: "2px solid #777",
+    outline: "none",
+    fontSize: "1.4em",
+    width: "100%",
+  }
+
   return (
     <MainLayout pageName={"View Quiz " + id}>
       <div
@@ -28,12 +37,8 @@ export default function EditQuiz() {
           type="text"
           value={id}
           style={{
+              ...inputStyle,
             width: "85%",
-            padding: "10px",
-            border: "none",
-            borderBottom: "2px solid #777",
-            outline: "none",
-            fontSize: "1.4em",
           }}
         />
         <div class="custom-control custom-checkbox">
@@ -59,34 +64,26 @@ export default function EditQuiz() {
               }}
               key={key}
             >
-              <span
-                style={{
-                  fontSize: "1.3em",
-                  fontWeight: "bold",
-                  color: "#444",
-                }}
-              >
-                {index + 1 + ") " + Questions[key].text}
-              </span>
+              <input style={inputStyle} value={Questions[key].text} />
               <hr />
               <div className="row">
                 <div className="col-md-6">
                   {Object.keys(Questions[key].options).map(
                     (optionKey, optionIndex) => (
-                      <div
+                      <input
                         key={"options" + optionKey}
                         style={{
-                          padding: "5%",
-                          borderRadius: "5px",
-                          marginTop: "12px",
+                            ...inputStyle,
+                            fontSize: "1em",
+                            marginTop: "12px",
+                            borderRadius: "5px",
                           backgroundColor:
                             Questions[key].answer === optionKey
                               ? "rgb(131, 234, 155)"
-                              : "#ddd",
+                              : "#eee",
                         }}
-                      >
-                        {Questions[key].options[optionKey]}
-                      </div>
+                        value={Questions[key].options[optionKey]}
+                      />
                     )
                   )}
                 </div>
