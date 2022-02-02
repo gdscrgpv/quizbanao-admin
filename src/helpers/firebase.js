@@ -1,4 +1,4 @@
-import { collection, doc, addDoc, getDocs, setDoc, deleteDoc } from "firebase/firestore";
+import { collection, doc, addDoc, getDocs, getDoc, setDoc, deleteDoc } from "firebase/firestore";
 import firebase from "../firebase";
 
 // Get All Record of given collection name
@@ -12,8 +12,8 @@ export async function getCollection(collectionName) {
 
 // Get Record of given collection name and document name
 export async function getDocument(collectionName, docName) {
-    const docSnapshot = await doc(firebase, collectionName, docName);
-    const docData = docSnapshot.data();
+    const docSnapshot = await getDoc(doc(firebase, collectionName, docName));
+    const docData =  docSnapshot.data();
     return docData;
 }
 
