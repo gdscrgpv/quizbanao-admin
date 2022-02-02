@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Responses from "./pages/Responses";
 import Quizzes from "./pages/Quizzes";
 import ViewQuiz from "./pages/ViewQuiz";
+import EditQuiz from "./pages/EditQuiz";
 
 function App() {
   // Get collection named quizzes from Firebase Firestore
@@ -71,6 +72,7 @@ function App() {
           }
         />
         <Route exact path="/view/:id" element={<ViewQuiz />} />
+        <Route exact path="/edit/:id" element={<EditQuiz />} />
       </Routes>
     </>
   );
