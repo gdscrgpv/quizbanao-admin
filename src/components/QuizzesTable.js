@@ -15,14 +15,9 @@ export default function QuizzesTable(props) {
                 </div>
                 <div className="ml-auto">
                   <div className="dl">
-                    <select className="custom-select">
-                      <option value={0} selected>
-                        Monthly
-                      </option>
-                      <option value={1}>Daily</option>
-                      <option value={2}>Weekly</option>
-                      <option value={3}>Yearly</option>
-                    </select>
+                    <a href="/add/quiz" type="button" className="btn btn-primary">
+                      <i className="mdi mdi-plus" />  Add Quiz
+                    </a>
                   </div>
                 </div>
               </div>
