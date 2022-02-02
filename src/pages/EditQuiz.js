@@ -37,14 +37,21 @@ export default function EditQuiz() {
   };
 
   const addQuestion = () => {
-    const newQuestions = {...Questions};
-    newQuestions[`${Object.keys(Questions).length}`] = {
-        question: "",
-        options: ["", "", "", ""]
+    const newQuestions = { ...Questions };
+    newQuestions[`question${Object.keys(Questions).length}`] = {
+      imageUrl: "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_3,f_auto,g_center,h_175,q_auto:good,w_175/v1/gcs/platform-data-dsc/events/GDSC%20University%20Institute%20of%20Technology%20RGPV%20vertical%20color.png",
+      text: "New Question",
+      options: {
+        option1: "Option 1",
+        option2: "Option 2",
+        option3: "Option 3",
+        option4: "Option 4",
+      },
+      time: 10,
+      answer: "option2",
     };
     setQuestions(newQuestions);
-    
-    };
+  };
   return (
     <MainLayout pageName={"View Quiz " + id}>
       <div
@@ -158,10 +165,10 @@ export default function EditQuiz() {
           ))}
           <hr />
           <div
-          style={{ 
-            display: "flex",
-            justifyContent: "center",
-          }}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
           >
             <button
               className="btn btn-lg m-auto btn-primary"
