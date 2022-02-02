@@ -19,9 +19,9 @@ export default function ViewQuiz() {
     <MainLayout pageName={"View Quiz " + id}>
       <div className="container">
         {active ? (
-          <h2 className="text-success">Active</h2>
+          <h2 className="text-success">{id} - Active</h2>
         ) : (
-          <h2 className="text-danger"></h2>
+          <h2 className="text-danger">{id} - InActive</h2>
         )}
 
         <hr />
