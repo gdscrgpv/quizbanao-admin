@@ -6,6 +6,13 @@ function ResponsesViewModal(props) {
   //   await deleteDocument(props.collection, props.id);
   //   window.location.reload();
   // }
+  const responseData={
+    name: 'HArsh',
+    email: 'harsh@gmail.com',
+    marks: '100',
+    quizId: '1',
+    time_taken: '10'
+  }
   return (
     <>
        <div
@@ -20,7 +27,7 @@ function ResponsesViewModal(props) {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLongTitle">
-                Delete
+                View Response
               </h5>
               <button
                 type="button"
@@ -32,8 +39,31 @@ function ResponsesViewModal(props) {
               </button>
             </div>
             <div className="modal-body">
-              Are you sure You want to delete <b>{props.id}</b> from collection <b>{props.collection}</b>? 
-            </div>
+                {/* Display Name Email Marks Quiz Time structured Way*/}
+                
+                  <table className="table table-borderless">
+                    <tr>
+                      <th>Name</th>
+                      <td>{responseData.name}</td>
+                    </tr>
+                    <tr>
+                      <th>Email</th>
+                      <td>{responseData.email}</td>
+                    </tr>
+                    <tr>
+                      <th>Marks</th>
+                      <td>{responseData.marks}</td>
+                    </tr>
+                    <tr>
+                      <th>Quiz Id</th>
+                      <td>{responseData.quizId}</td>
+                    </tr>
+                    <tr>
+                      <th>Time Taken</th>
+                      <td>{responseData.time_taken}</td>
+                    </tr>
+                  </table>
+               </div>
             <div className="modal-footer">
               <button
                 type="button"
