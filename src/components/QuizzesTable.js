@@ -50,7 +50,7 @@ export default function QuizzesTable(props) {
                               
                               <i className="mdi mdi-eye" />
                             </a>
-                            <a href="#" className="btn btn-outline-success">
+                            <a href={"/view/"+quiz.id} className="btn btn-outline-success">
                               <i className="mdi mdi-pencil" />
                             </a>
 
