@@ -29,7 +29,7 @@ export async function addDocument(collectionName, docName, data) {
 
 // Update Record of given collection name and document name
 export async function updateDocument(collectionName, docName, data) {
-    await setDoc(firebase, collectionName, docName, data);
+    await setDoc(doc(firebase, collectionName, docName), data);
 }
 
 export function yepp() {
