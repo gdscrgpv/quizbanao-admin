@@ -13,22 +13,9 @@ export default function AnalysisTable(props) {
             <div className="card-body">
               <div className="d-md-flex align-items-center">
                 <div>
-                  <h3 className="card-title">Quizzes</h3>
-                </div>
-                <div className="ml-auto">
-                  <div className="dl">
-                    <select className="custom-select">
-                      <option value={0} selected>
-                        Monthly
-                      </option>
-                      <option value={1}>Daily</option>
-                      <option value={2}>Weekly</option>
-                      <option value={3}>Yearly</option>
-                    </select>
-                  </div>
+                  <h3 className="card-title">Responses</h3>
                 </div>
               </div>
-              {/* title */}
             </div>
             <div className="table-responsive">
               <table className="table v-middle">
