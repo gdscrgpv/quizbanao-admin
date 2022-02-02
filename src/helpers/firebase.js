@@ -24,7 +24,7 @@ export async function deleteDocument(collectionName, docName) {
 
 // Add Record of given collection name and document name
 export async function addDocument(collectionName, docName, data) {
-    await addDoc(firebase, collectionName, docName, data);
+    await setDoc(doc(firebase, collectionName, docName), data);
 }
 
 // Update Record of given collection name and document name
