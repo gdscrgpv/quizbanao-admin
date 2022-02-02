@@ -61,7 +61,7 @@ export default function AnalysisTable(props) {
                               data-toggle="modal"
                               data-target="#responsesViewModal"
                               onClick={() => {
-                                setDelId(quiz.id);
+                                setResponseId(quiz.id);
                               }}
                               className="btn btn-outline-primary"
                             >

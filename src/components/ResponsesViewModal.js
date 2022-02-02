@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {deleteDocument} from '../helpers/firebase';
+import {getDocument} from '../helpers/firebase';
 
 function ResponsesViewModal(props) {
-  // async function deleteDoc(){
-  //   await deleteDocument(props.collection, props.id);
-  //   window.location.reload();
-  // }
-  const responseData={
-    name: 'HArsh',
-    email: 'harsh@gmail.com',
-    marks: '100',
-    quizId: '1',
-    time_taken: '10'
-  }
+  const [responseData, setResponseData] = useState(null);
+  useEffect(async () => {
+    console.log(`Looking for ${props.id}`);
+    const data = await getDocument('users', props.id);
+    console.log("Response Data: " ,data);
+    setResponseData(data);
+  }, [props.id]);
+
   return (
     <>
        <div
@@ -39,12 +36,12 @@ function ResponsesViewModal(props) {
               </button>
             </div>
             <div className="modal-body">
-                {/* Display Name Email Marks Quiz Time structured Way*/}
-                
+              
+              {responseData &&
                   <table className="table table-borderless">
                     <tr>
                       <th>Name</th>
-                      <td>{responseData.name}</td>
+                      <td>{responseData.fullName}</td>
                     </tr>
                     <tr>
                       <th>Email</th>
@@ -63,6 +60,7 @@ function ResponsesViewModal(props) {
                       <td>{responseData.time_taken}</td>
                     </tr>
                   </table>
+  }
                </div>
             <div className="modal-footer">
               <button
@@ -71,13 +69,6 @@ function ResponsesViewModal(props) {
                 data-dismiss="modal"
               >
                 Close
-              </button>
-              <button type="button" className="btn btn-danger" 
-               data-dismiss="modal"
-              onClick={()=>{
-                // deleteDoc()
-                }}>
-                Save changes
               </button>
             </div>
           </div>
