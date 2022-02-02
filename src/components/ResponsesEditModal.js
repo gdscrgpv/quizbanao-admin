@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {getDocument} from '../helpers/firebase';
 
-function ResponsesViewModal(props) {
+function ResponsesEditViewModal(props) {
   const [responseData, setResponseData] = useState(null);
   useEffect(async () => {
     console.log(`Looking for ${props.id}`);
@@ -14,7 +14,7 @@ function ResponsesViewModal(props) {
     <>
        <div
         className="modal fade"
-        id="responsesViewModal"
+        id="responsesEditViewModal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
@@ -79,4 +79,4 @@ function ResponsesViewModal(props) {
   );
 }
 
-export default ResponsesViewModal;
+export default ResponsesEditViewModal;

@@ -76,7 +76,7 @@ export default function AnalysisTable(props) {
                               data-toggle="modal"
                               data-target="#responseEditModal"
                               onClick={() => {
-                                setDelId(quiz.id);
+                                setResponseId(quiz.id);
                               }}                            
                             className="btn btn-outline-success">
                               <i className="mdi mdi-pencil" />
