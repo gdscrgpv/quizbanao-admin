@@ -22,7 +22,7 @@ export default function EditQuiz() {
     outline: "none",
     fontSize: "1.4em",
     width: "100%",
-  }
+  };
 
   return (
     <MainLayout pageName={"View Quiz " + id}>
@@ -37,7 +37,7 @@ export default function EditQuiz() {
           type="text"
           value={id}
           style={{
-              ...inputStyle,
+            ...inputStyle,
             width: "85%",
           }}
         />
@@ -49,7 +49,9 @@ export default function EditQuiz() {
             onChange={() => setActive(!active)}
             checked={active}
           />
-          <label class="custom-control-label" for="customCheck1">{active ? "Active" : "InActive"}</label>
+          <label class="custom-control-label" for="customCheck1">
+            {active ? "Active" : "InActive"}
+          </label>
         </div>
         <hr />
         <div>
@@ -70,13 +72,27 @@ export default function EditQuiz() {
                 <div className="col-md-6">
                   {Object.keys(Questions[key].options).map(
                     (optionKey, optionIndex) => (
+                        <div style={{ 
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center"
+                        }}>
+                        <input type="radio" name={"option"+key} value={optionKey} style={{
+                            transform: "scale(1.5)",
+                            width:"10%"
+                        }}
+                        checked={optionKey === Questions[key].answer}
+
+                        />
                       <input
                         key={"options" + optionKey}
                         style={{
-                            ...inputStyle,
-                            fontSize: "1em",
-                            marginTop: "12px",
-                            borderRadius: "5px",
+                          ...inputStyle,
+                            width: "90%",
+                            display: "inline-block",
+                          fontSize: "1em",
+                          marginBottom: "12px",
+                          borderRadius: "5px",
                           backgroundColor:
                             Questions[key].answer === optionKey
                               ? "rgb(131, 234, 155)"
@@ -84,13 +100,20 @@ export default function EditQuiz() {
                         }}
                         value={Questions[key].options[optionKey]}
                       />
+                      </div>
                     )
                   )}
                 </div>
                 <div className="col-md-6">
+                  <input
+                    style={{
+                      ...inputStyle,
+                      fontSize: "1em",
+                    }}
+                    value={Questions[key].imageUrl}
+                  />
                   <img
                     src={Questions[key].imageUrl}
-                    alt=""
                     style={{
                       maxHeight: "300px",
                     }}
