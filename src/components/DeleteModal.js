@@ -10,7 +10,7 @@ function DeleteModal(props) {
     <>
        <div
         className="modal fade"
-        id={"exampleModalCenter"}
+        id="deleteModal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"

@@ -68,7 +68,7 @@ export default function AnalysisTable(props) {
                               role="button"
                               type="button"
                               data-toggle="modal"
-                              data-target="#exampleModalCenter"
+                              data-target="#deleteModal"
                               className="btn btn-outline-danger"
                               onClick={() => {
                                 setDelId(quiz.id);
