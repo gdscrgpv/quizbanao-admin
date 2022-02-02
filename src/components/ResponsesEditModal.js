@@ -25,9 +25,8 @@ function ResponsesEditModal(props) {
       quizId,
       time_taken,
     };
-    console.log("Updating Data......");
     await updateDocument("users", props.id, formdata);
-    console.log("Data Updated......");
+    window.location.reload();
   }
     
   
