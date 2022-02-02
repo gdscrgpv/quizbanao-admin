@@ -72,7 +72,8 @@ function App() {
           }
         />
         <Route exact path="/view/:id" element={<ViewQuiz />} />
-        <Route exact path="/edit/:id" element={<EditQuiz />} />
+        <Route exact path="/edit/:id" element={<EditQuiz method="edit"/>} />
+        <Route exact path="/add/quiz" element={<EditQuiz method="add" />} />
       </Routes>
     </>
   );

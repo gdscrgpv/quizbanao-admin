@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { updateDocument, getDocument } from "../helpers/firebase";
+import { updateDocument, getDocument, addDocument } from "../helpers/firebase";
 import MainLayout from "../layouts/MainLayout";
 
-export default function EditQuiz() {
+export default function EditQuiz(props) {
   const [Questions, setQuestions] = useState({});
   const [active, setActive] = useState(false);
   const params = useParams();
-  const [id, setId] = useState(params.id);
+  var defaultId;
+  const generateRandomString = () => {
+    return Math.random().toString(36).substring(2, 10);
+  };
+  if (props.method === "/edit") {
+    defaultId = params.id;
+  } else {
+    defaultId = generateRandomString();
+  }
+  const [id, setId] = useState(defaultId);
   useEffect(async () => {
     const data = await getDocument("quizzes", id);
     setQuestions(data.questions);
@@ -56,12 +65,13 @@ export default function EditQuiz() {
 
   const updateQuiz = async () => {
     const data = {
-        questions: Questions,
-        active: active,
+      questions: Questions,
+      active: active,
     };
     await updateDocument("quizzes", id, data);
-    window.location.href = "/view/"+id;
-    };
+
+    window.location.href = "/view/" + id;
+  };
 
   return (
     <MainLayout pageName={"View Quiz " + id}>
