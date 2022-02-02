@@ -5,7 +5,6 @@ import { getCollection } from "../helpers/firebase";
 
 export default function Quizzes() {
   const [Quizzes, setQuizzes] = useState([]);
-  // setQuizzes(getCollection('users'));
   async function getQuizzes() {
     setQuizzes(await getCollection("quizzes"));
   }
@@ -16,7 +15,7 @@ export default function Quizzes() {
   return (
     <MainLayout pageName="Quizzes">
       <div className="container-fluid">
-        <QuizzesTable Quizzes={Quizzes} />
+        <QuizzesTable quizzes={Quizzes} />
       </div>
     </MainLayout>
   );

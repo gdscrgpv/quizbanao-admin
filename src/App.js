@@ -7,6 +7,7 @@ import { collection, doc, addDoc, getDocs, setDoc } from "firebase/firestore";
 import ViewQueAns from "./pages/ViewQueAns";
 import Dashboard from "./pages/Dashboard";
 import Responses from "./pages/Responses";
+import Quizzes from "./pages/Quizzes";
 
 function App() {
   // Get collection named quizzes from Firebase Firestore
@@ -59,6 +60,13 @@ function App() {
           path="/responses"
           element={
             <Responses />
+          }
+        />
+        <Route
+          exact
+          path="/quizzes"
+          element={
+            <Quizzes />
           }
         />
         <Route exact path="/view/:id" element={<ViewQueAns />} />
