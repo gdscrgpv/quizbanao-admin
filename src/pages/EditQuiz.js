@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getDocument } from "../helpers/firebase";
+import { updateDocument, getDocument } from "../helpers/firebase";
 import MainLayout from "../layouts/MainLayout";
 
 export default function EditQuiz() {
@@ -39,7 +39,8 @@ export default function EditQuiz() {
   const addQuestion = () => {
     const newQuestions = { ...Questions };
     newQuestions[`question${Object.keys(Questions).length}`] = {
-      imageUrl: "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_3,f_auto,g_center,h_175,q_auto:good,w_175/v1/gcs/platform-data-dsc/events/GDSC%20University%20Institute%20of%20Technology%20RGPV%20vertical%20color.png",
+      imageUrl:
+        "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_3,f_auto,g_center,h_175,q_auto:good,w_175/v1/gcs/platform-data-dsc/events/GDSC%20University%20Institute%20of%20Technology%20RGPV%20vertical%20color.png",
       text: "New Question",
       options: {
         option1: "Option 1",
@@ -52,6 +53,16 @@ export default function EditQuiz() {
     };
     setQuestions(newQuestions);
   };
+
+  const updateQuiz = async () => {
+    const data = {
+        questions: Questions,
+        active: active,
+    };
+    await updateDocument("quizzes", id, data);
+    window.location.href = "/view/"+id;
+    };
+
   return (
     <MainLayout pageName={"View Quiz " + id}>
       <div
@@ -171,8 +182,14 @@ export default function EditQuiz() {
             }}
           >
             <button
-              className="btn btn-lg m-auto btn-primary"
+              className="btn btn-lg m-auto btn-secondary"
               onClick={() => addQuestion()}
+            >
+              Add Questions
+            </button>
+            <button
+              className="btn btn-lg m-auto btn-primary"
+              onClick={() => updateQuiz()}
             >
               Update Questions
             </button>
