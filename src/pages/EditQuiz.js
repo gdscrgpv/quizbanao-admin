@@ -147,6 +147,20 @@ export default function EditQuiz() {
               </div>
             </div>
           ))}
+          <hr />
+          <div
+          style={{ 
+            display: "flex",
+            justifyContent: "center",
+          }}
+          >
+            <button
+              className="btn btn-lg m-auto btn-primary"
+              onClick={() => addQuestion()}
+            >
+              Update Questions
+            </button>
+          </div>
         </div>
       </div>
     </MainLayout>
