@@ -67,7 +67,7 @@ export default function QuizzesTable(props) {
                               data-target="#deleteModal"
                               className="btn btn-outline-danger"
                               onClick={() => {
-                                props.setIdQuiz(quiz.id);
+                                setDelId(quiz.id);
                               }}
                             >
                               <i className="mdi mdi-trash-can" />

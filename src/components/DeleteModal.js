@@ -32,7 +32,7 @@ function DeleteModal(props) {
               </button>
             </div>
             <div className="modal-body">
-              Are you sure You want to delete <b>{props.id}</b> from collection <b>{props.collection}</b>? 
+              Are you sure!! You want to delete <b>{props.id}</b> from collection <b>{props.collection}</b>? 
             </div>
             <div className="modal-footer">
               <button
