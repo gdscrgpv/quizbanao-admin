@@ -24,11 +24,18 @@ export default function EditQuiz() {
     width: "100%",
   };
 
-  const updateQuestions = (e,key,property) => {
-    const newQuestions = {...Questions};
+  const updateQuestions = (e, key, property) => {
+    const newQuestions = { ...Questions };
     newQuestions[key][property] = e.target.value;
     setQuestions(newQuestions);
-    };
+  };
+
+  const updateOptions = (e, key, option) => {
+    const newQuestions = { ...Questions };
+    newQuestions[key]["options"][option] = e.target.value;
+    setQuestions(newQuestions);
+  };
+
   return (
     <MainLayout pageName={"View Quiz " + id}>
       <div
@@ -72,44 +79,51 @@ export default function EditQuiz() {
               }}
               key={key}
             >
-              <input style={inputStyle} value={Questions[key].text}
-
-                onChange={(e) => updateQuestions(e,key,"text")}
+              <input
+                style={inputStyle}
+                value={Questions[key].text}
+                onChange={(e) => updateQuestions(e, key, "text")}
               />
               <hr />
               <div className="row">
                 <div className="col-md-6">
                   {Object.keys(Questions[key].options).map(
                     (optionKey, optionIndex) => (
-                        <div style={{ 
-                            display: "flex",
-                            flexDirection: "row",
-                            alignItems: "center"
-                        }}>
-                        <input type="radio" name={"option"+key} value={optionKey} style={{
-                            transform: "scale(1.5)",
-                            width:"10%"
-                        }}
-                        checked={optionKey === Questions[key].answer}
-                        onChange={(e) => updateQuestions(e,key,"answer")}
-
-                        />
-                      <input
-                        key={"options" + optionKey}
+                      <div
                         style={{
-                          ...inputStyle,
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "center",
+                        }}
+                      >
+                        <input
+                          type="radio"
+                          name={"option" + key}
+                          value={optionKey}
+                          style={{
+                            transform: "scale(1.5)",
+                            width: "10%",
+                          }}
+                          checked={optionKey === Questions[key].answer}
+                          onChange={(e) => updateQuestions(e, key, "answer")}
+                        />
+                        <input
+                          key={"options" + optionKey}
+                          style={{
+                            ...inputStyle,
                             width: "90%",
                             display: "inline-block",
-                          fontSize: "1em",
-                          marginBottom: "12px",
-                          borderRadius: "5px",
-                          backgroundColor:
-                            Questions[key].answer === optionKey
-                              ? "rgb(131, 234, 155)"
-                              : "#eee",
-                        }}
-                        value={Questions[key].options[optionKey]}
-                      />
+                            fontSize: "1em",
+                            marginBottom: "12px",
+                            borderRadius: "5px",
+                            backgroundColor:
+                              Questions[key].answer === optionKey
+                                ? "rgb(131, 234, 155)"
+                                : "#eee",
+                          }}
+                          value={Questions[key].options[optionKey]}
+                          onChange={(e) => updateOptions(e, key, optionKey)}
+                        />
                       </div>
                     )
                   )}
@@ -121,7 +135,7 @@ export default function EditQuiz() {
                       fontSize: "1em",
                     }}
                     value={Questions[key].imageUrl}
-                    onChange={(e) => updateQuestions(e,key,"imageUrl")}
+                    onChange={(e) => updateQuestions(e, key, "imageUrl")}
                   />
                   <img
                     src={Questions[key].imageUrl}
