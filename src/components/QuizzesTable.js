@@ -55,7 +55,7 @@ export default function QuizzesTable(props) {
                             </a>
 
                             <a
-                              href="#"
+                              href={"/edit/"+quiz.id}
                               role="button"
                               type="button"
                               data-toggle="modal"
