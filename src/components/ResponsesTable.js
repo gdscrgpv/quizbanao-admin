@@ -1,5 +1,6 @@
 import React, { useState, useEffect }from "react";
 import DeleteModal from "./DeleteModal";
+import ResponsesEditViewModal from "./ResponsesEditModal";
 import ResponsesViewModal from "./ResponsesViewModal";
 export default function AnalysisTable(props) {
   const [delId , setDelId] = useState('');
@@ -74,7 +75,7 @@ export default function AnalysisTable(props) {
                               role="button"
                               type="button"
                               data-toggle="modal"
-                              data-target="#responseEditModal"
+                              data-target="#responsesEditModal"
                               onClick={() => {
                                 setResponseId(quiz.id);
                               }}                            
@@ -104,6 +105,7 @@ export default function AnalysisTable(props) {
               </table>
               <DeleteModal collection="users" id={delId} />
               <ResponsesViewModal id={responseId} />
+              <ResponsesEditViewModal id={responseId} />
             </div>
           </div>
         </div>
