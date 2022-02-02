@@ -14,7 +14,7 @@ export default function Responses() {
   }, []);
 
   return (
-  <MainLayout>
+  <MainLayout pageName="Responses">
     <div className="container-fluid">
       <ResponsesTable responses={responses} />
     </div>

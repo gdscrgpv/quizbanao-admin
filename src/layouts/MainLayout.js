@@ -11,7 +11,7 @@ export default function MainLayout(props) {
         <Topbar />
         <Sidebar />
         <main>
-          <BreadCrubmb />
+          <BreadCrubmb pageName={props.pageName} />
           {props.children}
           <Footer />
         </main>
