@@ -45,6 +45,12 @@ export default function EditQuiz(props) {
     setQuestions(newQuestions);
   };
 
+  const deleteQuestion = (key) => {
+    const newQuestions = { ...Questions };
+    delete newQuestions[key];
+    setQuestions(newQuestions);
+  };
+
   const addQuestion = () => {
     const newQuestions = { ...Questions };
     newQuestions[`question${Object.keys(Questions).length}`] = {
@@ -117,10 +123,22 @@ export default function EditQuiz(props) {
               key={key}
             >
               <input
-                style={inputStyle}
+                style={{...inputStyle,
+                width: "90%",
+                }}
                 value={Questions[key].text}
                 onChange={(e) => updateQuestions(e, key, "text")}
               />
+              <button
+              className="btn btn-secondary"
+              style={{
+                float: "right",
+              }}
+                onClick={() => deleteQuestion(key)}
+              >
+                <i className="fa fa-trash" />
+              </button>
+
               <hr />
               <div className="row">
                 <div className="col-md-6">
